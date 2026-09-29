@@ -1,0 +1,64 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+<!-- wp:group {"tagName":"main","anchor":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group" id="main">
+  <!-- wp:group {"align":"full","className":"hero page-hero course-hero hero-centered","layout":{"type":"default"}} -->
+  <div
+    class="wp-block-group alignfull hero page-hero course-hero hero-centered"
+  >
+    <!-- wp:buttons {"className":"back-btn","layout":{"type":"flex","justifyContent":"left"}} -->
+    <div class="wp-block-buttons back-btn">
+      <!-- wp:button {"className":"is-style-outline"} -->
+      <div class="wp-block-button is-style-outline">
+        <a class="wp-block-button__link wp-element-button" href="/"
+          >← Back to home</a
+        >
+      </div>
+      <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+    <!-- wp:heading {"textAlign":"center","level":1} -->
+    <h1 class="wp-block-heading has-text-align-center">
+      Find your next course
+    </h1>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"align":"center","className":"hero-lead"} -->
+    <p class="has-text-align-center hero-lead">
+      Practical, self-paced and live courses with certificates included.
+    </p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:group {"align":"full","className":"section section-mist","layout":{"type":"constrained","wideSize":"1200px"}} -->
+  <div class="wp-block-group alignfull section section-mist">
+    <!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"course","order":"asc","orderby":"date","inherit":true},"align":"wide","layout":{"type":"default"}} -->
+    <div class="wp-block-query alignwide">
+      <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+      <!-- wp:group {"className":"course-card","layout":{"type":"default"}} -->
+      <div class="wp-block-group course-card">
+        <!-- wp:paragraph {"className":"chip","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"course_duration"}}}}} -->
+        <p class="chip"></p>
+        <!-- /wp:paragraph -->
+        <!-- wp:post-title {"level":3,"isLink":true} /-->
+        <!-- wp:post-excerpt {"excerptLength":24} /-->
+        <!-- wp:read-more {"content":"View course details"} /-->
+      </div>
+      <!-- /wp:group -->
+      <!-- /wp:post-template -->
+      <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+      <!-- wp:query-pagination-previous /-->
+      <!-- wp:query-pagination-numbers /-->
+      <!-- wp:query-pagination-next /-->
+      <!-- /wp:query-pagination -->
+      <!-- wp:query-no-results --><!-- wp:paragraph -->
+      <p>
+        No courses yet. Activate the Southern Courses plugin to add sample
+        courses.
+      </p>
+      <!-- /wp:paragraph --><!-- /wp:query-no-results -->
+    </div>
+    <!-- /wp:query -->
+  </div>
+  <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"div"} /-->

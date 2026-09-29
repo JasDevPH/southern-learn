@@ -1,0 +1,531 @@
+/*
+Theme Name: Southern Learn
+Description: Lightweight custom block theme for an online education brand. No page builders, no jQuery, no bloat.
+Version: 1.3.0
+Requires at least: 6.5
+Requires PHP: 8.0
+License: GPL-2.0-or-later
+Text Domain: southern-learn
+*/
+
+:root {
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body .wp-site-blocks > *,
+body main.wp-block-group > * {
+  margin-block: 0;
+}
+:focus-visible {
+  outline: 3px solid var(--wp--preset--color--aqua);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 1.1rem 1.5rem;
+  color: #fff;
+  background: var(--wp--preset--color--ink);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    padding 0.3s var(--ease),
+    background 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.site-header.is-scrolled {
+  padding-block: 0.6rem;
+  background: rgba(11, 18, 32, 0.88);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.site-header a {
+  color: #fff;
+  text-decoration: none;
+}
+.site-header .wp-block-site-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.admin-bar .site-header {
+  top: 32px;
+}
+@media (max-width: 782px) {
+  .admin-bar .site-header {
+    top: 46px;
+  }
+}
+.site-header .wp-block-navigation {
+  gap: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.site-header .wp-block-navigation-item__content {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  opacity: 0.75;
+  transition:
+    opacity 0.25s var(--ease),
+    background 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+.site-header .wp-block-navigation-item__content:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+.site-header .current-menu-item > .wp-block-navigation-item__content {
+  opacity: 1;
+  color: var(--wp--preset--color--aqua);
+  background: rgba(34, 211, 238, 0.12);
+}
+.site-header .wp-block-navigation__responsive-container-open,
+.site-header .wp-block-navigation__responsive-container-close {
+  color: #fff;
+}
+.site-header .wp-block-navigation__responsive-container.is-menu-open {
+  background-color: var(--wp--preset--color--ink);
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  padding: clamp(5rem, 12vw, 9rem) 1.5rem clamp(3rem, 7vw, 5rem);
+  background:
+    radial-gradient(
+      600px circle at var(--mx, 70%) var(--my, 20%),
+      rgba(34, 211, 238, 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px circle at 10% 90%,
+      rgba(37, 99, 235, 0.35),
+      transparent 60%
+    ),
+    #0b1220;
+}
+.hero h1,
+.hero h2 {
+  color: #fff;
+}
+.hero h1 {
+  background: linear-gradient(90deg, #fff 30%, var(--wp--preset--color--aqua));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.eyebrow {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--wp--preset--color--aqua);
+  margin-bottom: 1.25rem !important;
+}
+.eyebrow:empty {
+  display: none;
+}
+.hero-lead {
+  color: rgba(255, 255, 255, 0.75);
+}
+.hero .wp-block-button__link {
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+  padding: 0.95rem 1.8rem;
+}
+.hero .wp-block-button__link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+.hero .is-style-outline .wp-block-button__link {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.hero-stats {
+  margin-top: clamp(3rem, 6vw, 4.5rem) !important;
+  gap: clamp(2rem, 6vw, 4.5rem);
+}
+.stat-number {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0.35rem 0 0;
+}
+
+/* Sections */
+.section {
+  padding: var(--wp--preset--spacing--70) 1.5rem;
+}
+.section-mist {
+  background: var(--wp--preset--color--mist);
+}
+.section > p {
+  max-width: 560px;
+  margin-inline: auto;
+  color: #4b5565;
+}
+.section .wp-block-query {
+  margin-top: 3rem;
+}
+
+/* Course cards (home + archive) */
+.wp-block-post-template.is-layout-grid {
+  gap: 1.5rem;
+}
+.wp-block-post-template > li {
+  display: flex;
+  margin: 0;
+}
+.course-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.75rem;
+  background: #fff;
+  border: 1px solid #e3e9f2;
+  border-radius: 18px;
+  padding: 1.75rem;
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(11, 18, 32, 0.12);
+  border-color: var(--wp--preset--color--ocean);
+}
+.course-card > * {
+  margin: 0;
+}
+.chip {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--wp--preset--color--ocean);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.chip:empty {
+  display: none;
+}
+.course-card .wp-block-post-title {
+  font-size: 1.35rem;
+}
+.course-card .wp-block-post-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.course-card .wp-block-post-title a:hover {
+  color: var(--wp--preset--color--ocean);
+}
+.wp-block-post-excerpt {
+  color: #4b5565;
+}
+.wp-block-post-excerpt p {
+  margin: 0;
+}
+.course-card > .wp-block-read-more {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--ocean);
+  text-decoration: none;
+}
+.wp-block-read-more::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform 0.25s var(--ease);
+}
+.course-card:hover .wp-block-read-more::after {
+  transform: translateX(6px);
+}
+.wp-block-query-pagination {
+  margin-top: 2.5rem;
+  gap: 1rem;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid #e3e9f2;
+  padding-block: 1.1rem;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--wp--preset--color--ocean);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item > :not(summary) {
+  overflow: hidden;
+}
+.faq-item p {
+  margin: 0.75rem 0 0;
+  color: #4b5565;
+}
+
+/* CTA + footer */
+.cta {
+  text-align: center;
+  color: #fff;
+  padding: var(--wp--preset--spacing--70) 1.5rem;
+  background: linear-gradient(135deg, var(--wp--preset--color--ocean), #0b1220);
+}
+.cta h2 {
+  color: #fff;
+}
+.cta p {
+  color: rgba(255, 255, 255, 0.8);
+}
+.cta .wp-block-button__link {
+  background: #fff;
+  color: var(--wp--preset--color--ink);
+  transition: transform 0.25s var(--ease);
+}
+.cta .wp-block-button__link:hover {
+  transform: translateY(-3px);
+}
+.site-footer {
+  background: var(--wp--preset--color--ink);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0;
+}
+
+/* Course page */
+.page-hero {
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+}
+.course-layout {
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.course-layout > .wp-block-column {
+  align-self: flex-start;
+}
+.course-body h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+}
+.course-body h2:first-child {
+  margin-top: 0;
+}
+.course-body ul {
+  padding-left: 1.25rem;
+}
+.course-body li {
+  margin-bottom: 0.5rem;
+}
+.course-sidebar-card {
+  background: #fff;
+  border: 1px solid #e3e9f2;
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 32px rgba(11, 18, 32, 0.08);
+}
+@media (min-width: 782px) {
+  .course-sidebar {
+    position: sticky;
+    top: 110px;
+  }
+}
+.meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7686;
+  margin: 1.1rem 0 0;
+}
+.meta-label:first-child {
+  margin-top: 0;
+}
+.meta-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0.15rem 0 0;
+}
+.meta-value:empty::before {
+  content: "\2014";
+  color: #9aa4b2;
+}
+.course-sidebar-card .wp-block-buttons {
+  margin-top: 1.5rem;
+}
+.course-sidebar-card .wp-block-button,
+.course-sidebar-card .wp-block-button__link {
+  width: 100%;
+  text-align: center;
+}
+.back-link {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.back-link a {
+  text-decoration: none;
+}
+
+/* Scroll reveal (only when JS is running, so content is never hidden without it) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== Inner-page hero (course pages) ===== */
+.course-hero {
+  text-align: left;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+  padding-inline: max(1.5rem, calc((100% - 1200px) / 2));
+  background:
+    radial-gradient(
+      650px circle at var(--mx, 85%) var(--my, 0%),
+      rgba(34, 211, 238, 0.2),
+      transparent 60%
+    ),
+    #0b1220;
+}
+.course-hero h1 {
+  max-width: 780px;
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #fff;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+.course-hero .hero-lead,
+.course-hero .wp-block-post-excerpt {
+  max-width: 640px;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+.course-hero .wp-block-post-excerpt p {
+  color: inherit;
+}
+.crumb {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+.crumb a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.crumb a:hover {
+  color: #fff;
+}
+.hero-pills {
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+.hero-pill {
+  margin: 0;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero-pill:empty {
+  display: none;
+}
+
+/* ===== Centred inner hero + back button (Courses page) ===== */
+.hero-centered {
+  text-align: center;
+}
+.hero-centered h1,
+.hero-centered .hero-lead {
+  margin-inline: auto;
+}
+.back-btn {
+  margin: 0 0 1.5rem;
+}
+.hero .back-btn .wp-block-button__link {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.hero .back-btn .wp-block-button__link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: none;
+  transform: translateX(-3px);
+}
